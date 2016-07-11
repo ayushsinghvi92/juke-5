@@ -1,4 +1,4 @@
-'use strict';
+'use strict';//
 
 // Create-playlist view
 
@@ -36,30 +36,6 @@ juke.controller('PlaylistCtrl', function ($scope, thePlaylist, PlaylistFactory, 
 
   $scope.playlist = thePlaylist;
 
-  $scope.addSong = function (song) {
-    return PlaylistFactory.addSong($scope.playlist.id, song)
-    .then(function (addedSong) {
-      $scope.playlist.songs.push(addedSong);
-      return addedSong;
-    });
-  };
-
-  $scope.toggle = function (song) {
-    if (song !== PlayerFactory.getCurrentSong()) {
-      PlayerFactory.start(song, $scope.playlist.songs);
-    } else if ( PlayerFactory.isPlaying() ) {
-      PlayerFactory.pause();
-    } else {
-      PlayerFactory.resume();
-    }
-  };
-
-  $scope.getCurrentSong = function () {
-    return PlayerFactory.getCurrentSong();
-  };
-
-  $scope.isPlaying = function (song) {
-    return PlayerFactory.isPlaying() && PlayerFactory.getCurrentSong() === song;
-  };
+ 
 
 });
